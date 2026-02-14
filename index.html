@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
     <title> Dr. Cristina Loi — Empirical Study of Narratives </title>
 <meta name="description" content="Cristina Loi - Postdoctoral researcher specializing in the Empirical Study of Narratives. Dr. Cristina Loi explores how stories shape our identity.">
     <meta property="og:title" content="Cristina Loi — Empirical Study of Narratives">
@@ -32,14 +33,20 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Nunito Sans', sans-serif;
             background: var(--bg);
             color: var(--text);
             font-weight: 300;
             line-height: 1.7;
-            overflow: hidden;
+            overflow-x: hidden;
             height: 100vh;
+            width: 100%;
+            position: relative;
         }
 
         /* Header */
@@ -53,7 +60,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(253, 249, 246, 0.9);
+            background: rgba(253, 249, 246, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(232, 212, 196, 0.3);
         }
@@ -66,6 +73,7 @@
             text-decoration: none;
             letter-spacing: 0.02em;
             transition: color 0.3s ease;
+            flex-shrink: 0;
         }
 
         .logo:hover {
@@ -85,6 +93,7 @@
             position: relative;
             padding: 0.25rem 0;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
         nav a::after {
@@ -115,6 +124,7 @@
             position: relative;
             height: 100vh;
             width: 100%;
+            overflow-x: hidden;
         }
 
         /* Individual Pages */
@@ -126,6 +136,7 @@
             height: 100vh;
             padding: 7rem 4rem 3rem;
             overflow-y: auto;
+            overflow-x: hidden;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.6s ease, visibility 0.6s ease;
@@ -263,6 +274,77 @@
             color: var(--text-light);
             margin-bottom: 1rem;
             max-width: 620px;
+        }
+
+        /* Current Affiliation Section */
+        .current-affiliation {
+            background: linear-gradient(135deg, rgba(196, 167, 125, 0.08) 0%, rgba(212, 224, 212, 0.08) 100%);
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 12px 12px 0;
+            max-width: 620px;
+        }
+
+        .current-affiliation-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .current-affiliation-content {
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .current-affiliation-content a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        .current-affiliation-content a:hover {
+            text-decoration: underline;
+        }
+
+        .affiliation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .affiliation-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .affiliation-icon {
+            color: var(--accent);
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        /* IGEL reference - smaller paragraph */
+        .igel-reference {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.75rem;
+            max-width: 620px;
+            font-style: italic;
+        }
+
+        .igel-reference a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .igel-reference a:hover {
+            text-decoration: underline;
         }
 
         .hero-buttons {
@@ -618,28 +700,6 @@
             flex-direction: column;
             margin-bottom: 0.75rem;
         }
-        
-        @media (max-width: 768px) {
-            .projects-grid {
-                gap: 1.5rem;
-            }
-            
-            .project-header {
-                padding: 1.5rem;
-            }
-            
-            .project-content {
-                padding: 0 1.5rem 1.5rem;
-                padding-top: 1.5rem;
-            }
-            
-            .project-details-fullwidth {
-                padding: 2rem 1.5rem;
-                margin-top: 1.5rem;
-            }
-        }
-        
-        .project-title-row
 
         .project-card h3 {
             font-family: 'Cormorant Garamond', serif;
@@ -1150,6 +1210,18 @@
                 margin-right: auto;
             }
 
+            .current-affiliation {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: left;
+            }
+
+            .igel-reference {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+
             .hero-buttons {
                 justify-content: center;
             }
@@ -1192,50 +1264,10 @@
                 padding-top: 1.5rem;
             }
 
-            .project-title-row {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 0.75rem;
-        }
-        
-        @media (max-width: 768px) {
-            .projects-grid {
-                gap: 1.5rem;
-            }
-            
-            .project-header {
-                padding: 1.5rem;
-            }
-            
-            .project-content {
-                padding: 0 1.5rem 1.5rem;
-                padding-top: 1.5rem;
-            }
-            
-            .project-details-fullwidth {
-                padding: 2rem 1.5rem;
-                margin-top: 1.5rem;
-            }
-        }
-        
-        .project-title-row
-
             .project-dates {
                 margin-left: 0;
                 margin-top: 0.5rem;
             }
-        .project-funding {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            font-style: italic;
-            margin-top: 0.25rem;
-        }
-        
-        .project-funding strong {
-            color: var(--accent);
-            font-weight: 500;
-            font-style: normal;
-        }
 
             .teaching-grid {
                 grid-template-columns: 1fr;
@@ -1249,45 +1281,270 @@
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
+                gap: 0.75rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
             }
 
             nav {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 1rem;
+                gap: 0.5rem 1rem;
+            }
+
+            nav a {
+                font-size: 0.75rem;
+                padding: 0.2rem 0;
             }
 
             .page {
-                padding: 8rem 1.5rem 2rem;
+                padding: 6.5rem 1.25rem 2rem;
+            }
+
+            .page-inner {
+                padding-top: 1rem;
             }
 
             .blob {
-                opacity: 0.25;
+                opacity: 0.2;
+                max-width: 200px;
+                max-height: 200px;
             }
 
-            .supervision-card {
-                padding: 2rem 1.5rem;
+            .blob-1 {
+                right: -50px;
+                top: 10%;
+            }
+
+            .blob-2 {
+                left: -80px;
+                bottom: 15%;
+            }
+
+            .blob-3 {
+                right: 5%;
+                bottom: 25%;
+            }
+
+            .hero-image-frame {
+                width: 180px;
+                height: 230px;
+            }
+
+            .hero-image-frame::before {
+                inset: -15px;
+            }
+
+            .hero-text h2 {
+                font-size: 1.8rem !important;
+            }
+
+            .hero-text .intro,
+            .hero-text .bio {
+                font-size: 0.9rem;
+            }
+
+            .current-affiliation {
+                padding: 0.85rem 1rem;
+                margin: 1rem 0;
+            }
+
+            .current-affiliation-label {
+                font-size: 0.7rem;
+            }
+
+            .current-affiliation-content {
+                font-size: 0.85rem;
+            }
+
+            .igel-reference {
+                font-size: 0.75rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .hero-cta,
+            .cv-download {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.8rem;
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
             }
 
             .academic-links {
                 flex-direction: column;
-                gap: 0.75rem;
+                gap: 0.5rem;
+            }
+
+            .research-section {
+                margin-top: 1rem;
+            }
+
+            .research-tags {
+                gap: 0.4rem;
+            }
+
+            .research-tag {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.7rem;
+            }
+
+            .journey-section {
+                margin-top: 2rem;
+                padding-top: 1.5rem;
             }
 
             .journey-section::before {
-                left: -1.5rem;
-                right: -1.5rem;
+                left: -1.25rem;
+                right: -1.25rem;
+            }
+
+            .journey-title {
+                font-size: 1.6rem;
+            }
+
+            .journey-image-container {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 0.9rem;
+            }
+
+            /* Projects mobile */
+            .projects-grid {
+                gap: 1.25rem;
             }
 
             .project-header {
-                padding: 1.25rem 1.5rem 1rem;
+                padding: 1.25rem;
+            }
+
+            .project-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .project-summary {
+                font-size: 0.85rem;
             }
 
             .project-content {
-                padding: 0 1.5rem 1.5rem;
+                padding: 0 1.25rem 1.25rem;
                 padding-top: 1.25rem;
+            }
+
+            .project-details-fullwidth {
+                padding: 1.5rem;
+                margin-top: 1.25rem;
+            }
+
+            .project-details-fullwidth h3 {
+                font-size: 1.5rem !important;
+            }
+
+            /* Publications mobile */
+            .publication-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                padding: 1.25rem;
+            }
+
+            .publication-year {
+                font-size: 0.9rem;
+            }
+
+            .publication-details h4 {
+                font-size: 1rem;
+            }
+
+            /* Teaching mobile */
+            .teaching-card {
+                padding: 1.5rem;
+            }
+
+            .teaching-card h3 {
+                font-size: 1.15rem;
+            }
+
+            .supervision-card {
+                padding: 1.5rem;
+            }
+
+            .supervision-card h4 {
+                font-size: 1.15rem;
+            }
+
+            /* Presentations mobile */
+            .presentations-timeline {
+                padding-left: 1.5rem;
+            }
+
+            .presentation-item {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .presentation-item::before {
+                left: -1.5rem;
+                width: 12px;
+                height: 12px;
+            }
+
+            .presentation-item h4 {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                gap: 0.4rem 0.8rem;
+            }
+
+            nav a {
+                font-size: 0.7rem;
+            }
+
+            .page {
+                padding: 6rem 1rem 1.5rem;
+            }
+
+            .hero-image-frame {
+                width: 150px;
+                height: 190px;
+            }
+
+            .hero-text h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .affiliation-item {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .affiliation-icon {
+                display: none;
             }
         }
     </style>
@@ -1322,8 +1579,24 @@
 <span style="display: block; font-style: italic; color: var(--accent);">shape our identity</span>
                         </h2>
                         <p class="intro fade-in">I am a Postdoctoral Researcher specializing in the Empirical Study of Narratives. My research focuses on how narratives (literary texts, films, tv series, and digital storytelling) impact our perception of who we <i><b>are</b></i>, who we <i><b>were</b></i>, and who we <i><b>could become</b></i> in the future.</p>
-                        <p class="bio fade-in"> Combining methods from narratology, psychology, and digital humanities, I investigate how narrative experiences – particularly fictional characters – can drive personal change by influencing identity, wellbeing, and coping skills. </p>
-                        <p class="bio fade-in"> I am currently based at the University of Basel, in Switzerland. For more information on current research in Empirical Narrative Studies, visit the <a href="https://igelsociety.org/" target="_blank">website</a> of the International Society for the Empirical Study of Literature and Other Media. </p>
+                        <p class="bio fade-in">Combining methods from narratology, psychology, and digital humanities, I investigate how narrative experiences – particularly fictional characters – can drive personal change by influencing identity, wellbeing, and coping skills.</p>
+                        
+                        <div class="current-affiliation fade-in">
+                            <div class="current-affiliation-label">Currently based at</div>
+                            <div class="current-affiliation-content">
+                                <div class="affiliation-item">
+                                    <span class="affiliation-icon">◆</span>
+                                    <span><a href="https://dhlab.philhist.unibas.ch/" target="_blank">Digital Humanities Lab</a>, University of Basel (Switzerland)</span>
+                                </div>
+                                <div class="affiliation-item">
+                                    <span class="affiliation-icon">◆</span>
+                                    <span><a href="https://https://www.accels.rwth-aachen.de/cms/~cidrb/accels/?lidx=1/" target="_blank">Aachen Center for Cognitive and Empirical Literary Studies</a>, RWTH Aachen University (Germany)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="igel-reference fade-in">For more information on current research in Empirical Narrative Studies, visit the <a href="https://igelsociety.org/" target="_blank">website</a> of the International Society for the Empirical Study of Literature and Other Media.</p>
+                        
                         <div class="research-section fade-in">
                             <h3 class="research-title">Research Interests</h3>
                             <div class="research-tags">
@@ -1390,7 +1663,7 @@
                             <div class="project-header" onclick="toggleProject(1)">
                                 <div class="project-title-row">
                                     <h3>On How Fiction Impacts our Self-Concept</h3>
-                                    <span class="project-dates">10/2020 – 12/2023</span>
+                                    <span class="project-dates"><span aria-hidden="true">10/</span>2020 – <span aria-hidden="true">12/</span>2023</span>
                                     <span class="project-funding"><strong>Funded by:</strong> ECR in the ELIT Network, European Union's Horizon 2020, Marie Skłodowska-Curie grant N. 860516</span>
                                 </div>
                                 <p class="project-summary">Doctoral research investigating how engaging with fiction impacts readers' self-concept across contemporary reading practices, using mixed-methods designs with over 1000 participants.</p>
@@ -1406,7 +1679,7 @@
                             <div class="project-header" onclick="toggleProject(2)">
                                 <div class="project-title-row">
                                     <h3>The "Sharing FutureS" Project</h3>
-                                    <span class="project-dates">02/2024 – 05/2025</span>
+                                    <span class="project-dates"><span aria-hidden="true">02/</span>2024 – <span aria-hidden="true">05/</span>2025</span>
                                     <span class="project-funding"><strong>Funded by:</strong> Swiss National Science Foundation, BRIDGE Proof of Concept, grant n. 222419</span>
                                 </div>
                                 <p class="project-summary">Postdoctoral project developing a 6-week narrative-based intervention program for young adults (18-24), combining Shared Reading and Empirical Ecocriticism to enhance mental health and positive coping strategies.</p>
@@ -1422,7 +1695,7 @@
                             <div class="project-header" onclick="toggleProject(3)">
                                 <div class="project-title-row">
                                     <h3>Developing the SPS Scale</h3>
-                                    <span class="project-dates">01/2026 – 12/2026</span>
+                                    <span class="project-dates"><span aria-hidden="true">01/</span>2026 – <span aria-hidden="true">12/</span>2026</span>
                                     <span class="project-funding"><strong>Funded by:</strong> Research Fund of the University of Basel, Excellent Junior Researcher, grant n. 4720688</span>
                                 </div>
                                 <p class="project-summary">Current project developing a multilingual self-report questionnaire to measure self-concept activation during narrative engagement.</p>
@@ -1444,9 +1717,9 @@
                             
                             <h4>Key findings include:</h4>
                             <ul>
-                                <li>Transformative reading experiences depend more on readers’ motivations and genre engagement than on the medium itself, with eudaimonic motivations and frequent engagement with psychologically oriented genres (e.g., drama) being the strongest predictors of perceived self-transformation across books and digital fiction.</li>
+                                <li>Transformative reading experiences depend more on readers' motivations and genre engagement than on the medium itself, with eudaimonic motivations and frequent engagement with psychologically oriented genres (e.g., drama) being the strongest predictors of perceived self-transformation across books and digital fiction.</li>
                                 <li>Fiction primarily impacts the present and desired dimensions of the self-concept, through the activation of "storyworld possible selves", i.e., self–character blends that emerge most strongly when readers feel emotionally engaged and transported into the narrative.</li>
-                                <li>Fiction resonates particularly strongly with readers who have a heightened “sense of possibility” as part of their personality: they are more likely to feel longing for alternative lives and to explicitly report reading fiction as a way to explore unrealized identities.</li>
+                                <li>Fiction resonates particularly strongly with readers who have a heightened "sense of possibility" as part of their personality: they are more likely to feel longing for alternative lives and to explicitly report reading fiction as a way to explore unrealized identities.</li>
                                 <li>The activation of the self-concept during reading is driven by personal relevance rather than textual cues (e.g., "SPS linguistic anchors") alone, with reader–character similarity facilitating storyworld possible selves, which in turn intensify transportation, emotional engagement, and affective empathy.</li>
                             </ul>
                             
@@ -1760,6 +2033,8 @@
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
+                // Reset scroll position when switching pages
+                targetPage.scrollTop = 0;
             }
         }
 
